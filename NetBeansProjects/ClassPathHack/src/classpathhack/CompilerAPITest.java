@@ -32,11 +32,8 @@ import javax.tools.ToolProvider;
 public class CompilerAPITest {
     static final Logger logger = Logger.getLogger(CompilerAPITest.class.getName()) ;
  
-    /**Java source code to be compiled dynamically*/
-    static String sourceCode = "class GeneratedClass{}" ;
- 
-    /**" 
-     * Does the required object initialisation and compilation.
+    
+     /* Does the required object initialisation and compilation.
      */
     public void doCompilation (){
        File[] files = {new File("/home/guestu/GeneratedClass.java")};
