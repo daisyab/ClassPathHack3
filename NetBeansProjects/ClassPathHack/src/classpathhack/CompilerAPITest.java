@@ -39,9 +39,7 @@ public class CompilerAPITest {
      * Does the required object initialisation and compilation.
      */
     public void doCompilation (){
-        /*Creating dynamic java source code file object*/
-        SimpleJavaFileObject fileObject = new DynamicJavaSourceCodeObject ("GeneratedClass", sourceCode) ;
-        JavaFileObject javaFileObjects[] = new JavaFileObject[]{fileObject} ;
+       File[] files = {new File("/home/guestu/GeneratedClass.java")};
  
         /*Instantiating the java compiler*/
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
@@ -75,39 +73,4 @@ public class CompilerAPITest {
        
     }
  
-}
- 
-class DynamicJavaSourceCodeObject extends SimpleJavaFileObject{
-    private String qualifiedName ;
-    private String sourceCode ;
- 
-    
-     //Converts the name to an URI, as that is the format expected by JavaFileObject
-         protected DynamicJavaSourceCodeObject(String name, String code) {
-        super(URI.create("string:///" +name.replaceAll("\\.", "/") + JavaFileObject.Kind.SOURCE.extension), JavaFileObject.Kind.SOURCE);
-        this.qualifiedName = name ;
-        this.sourceCode = code ;
-    }
- 
-    @Override
-    public CharSequence getCharContent(boolean ignoreEncodingErrors)
-            throws IOException {
-        return sourceCode ;
-    }
- 
-    public String getQualifiedName() {
-        return qualifiedName;
-    }
- 
-    public void setQualifiedName(String qualifiedName) {
-        this.qualifiedName = qualifiedName;
-    }
- 
-    public String getSourceCode() {
-        return sourceCode;
-    }
- 
-    public void setSourceCode(String sourceCode) {
-        this.sourceCode = sourceCode;
-    }
 }
