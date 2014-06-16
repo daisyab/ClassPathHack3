@@ -32,7 +32,11 @@ import javax.tools.ToolProvider;
 public class CompilerAPITest {
     static final Logger logger = Logger.getLogger(CompilerAPITest.class.getName()) ;
  
-    
+    public static void main(String args[]){
+        new CompilerAPITest().doCompilation() ;
+       
+    }
+ 
      /* Does the required object initialisation and compilation.
      */
     public void doCompilation (){
@@ -64,10 +68,4 @@ public class CompilerAPITest {
         } catch (IOException e) {
         }
     }
- 
-    public static void main(String args[]){
-        new CompilerAPITest().doCompilation() ;
-       
-    }
- 
 }
